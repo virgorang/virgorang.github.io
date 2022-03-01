@@ -4,11 +4,30 @@
   
     
     <entry>
-      <title>第一篇博客搭建</title>
-      <link href="/2022/02/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-      <url>/2022/02/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+      <title>指针</title>
+      <link href="/2022/03/01/%E6%8C%87%E9%92%88%E5%B0%8F%E8%AE%B0/"/>
+      <url>/2022/03/01/%E6%8C%87%E9%92%88%E5%B0%8F%E8%AE%B0/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p>cpu   地址线：对内存哪个单元处理   内存<br>      控制线：读还是写<br>      数据线：数据的流向</p><p>地址：内存单元的编号（不可重复）</p><p>指针：<br>    指针就是地址，地址就是指针<br>    指针变量是存放内存单元地址的变量<br>    指针的本质是一个操作寿险的非负整数</p><pre><code>int *p  //p是变量名（本身也占一个地址） ，int *p表示该p变量只能存储int类型变量的地址函数：    void f(int *p） //定义了一个形参，存储int *    &#123;        *p=100;    &#125;    int main()    &#123;        int i= 9;        f(&amp;i)        printf(&quot;i=%d\n&quot;,i);        return 0;    &#125;    int a[5]=[1,2,3,4,5]    a 指向的是数组的第一个元素的地址a[0]    a + 1 指向的是数组的第二个元素的地址a[1]    a[i] = *(a+i)    %p 输出地址</code></pre><h2 id="指针的作用"><a href="#指针的作用" class="headerlink" title="指针的作用"></a>指针的作用</h2><pre><code>在函数中改变主调函数中的存储单元如果通过函数值返回结果，显然结果只能有一个。通过间接操作，在函数中改变主调函数中的存储单元，可以达到让函数带回多个计算结果到主调函数的目的。访问动态分配的存储单元</code></pre><h2 id="各种指针"><a href="#各种指针" class="headerlink" title="各种指针"></a>各种指针</h2><p>int *p;<br>整型指针，指向整数的指针<br>整型指针指针，指向(整型)<br>int **p; 指针的指针，二级(整型)指针<br>int a[ 10]; 整型数组<br>int *p[ 10]; 指针数组<br>int (*p)[10]; 数组指针，指向数组的指针，行指针</p><p>intf(int x); 返回整数的函数</p><p>int *f(int x); 返回整型指针的函数<br>int (*p)(int x); 函数指针，指向函数的指针</p><h2 id="和指针的结合"><a href="#和指针的结合" class="headerlink" title="++和指针的结合"></a>++和指针的结合</h2><p>如(<em>p)++. p所指向的单元的自增运算<br><em>p++，</em> ++ 单目 右结合性，同级.又”++”为后缀先引用p当前所指地与</em>结分.后再将p+1.此时指针指向下一个单元<br>++ (*p) ++前缀. 先增值后引用<br>前缀.先增值后引用<br>++ *p </p><ul><li>++p</li></ul>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 学习小记 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>linux常用命令</title>
+      <link href="/2022/02/15/linux%E5%91%BD%E4%BB%A4/"/>
+      <url>/2022/02/15/linux%E5%91%BD%E4%BB%A4/</url>
+      
+        <content type="html"><![CDATA[<h2 id="文件目录"><a href="#文件目录" class="headerlink" title="文件目录"></a>文件目录</h2><p>bin:存放普通用户可执行的命令<br>boot:系统装载引导程序<br>dev:各种存储介质<br>etc:配置文件<br>home:普通用户信息<br>root:管理员信息<br>llib：库文件<br>media：光驱<br>opt:大型程序<br>proc:开机生产系统临时文件<br>sbin:管理员执行命令<br>selinux:对服务进行防护<br>usr&#x2F;local&#x2F; :第三方程序<br>var&#x2F;message 系统日志<br>var&#x2F;www&#x2F;html&#x2F;  网站根目录</p><h2 id="命令："><a href="#命令：" class="headerlink" title="命令："></a>命令：</h2><p>命令字 【选项】 【参数】<br>uname- r  查看版本号<br>hostname  主机名<br>ifconfig  IP<br>cat &#x2F;proc&#x2F;cpuinfo CPU<br>cat &#x2F;proc&#x2F;meminfo 硬件信息<br>halt 关机 reboot重启<br>pwd 查看当前路径</p><h2 id="ls-查看目录"><a href="#ls-查看目录" class="headerlink" title="ls  查看目录"></a>ls  查看目录</h2><pre><code>ls -F 查看目录中的文件 ls -l 显示文件和目录的详细资料 ls -a 显示隐藏文件 ls *[0-9]* 显示包含数字的文件名和目录名 </code></pre><h2 id="创建文件"><a href="#创建文件" class="headerlink" title="创建文件"></a>创建文件</h2><p>创建隐形文件 文件名前加.  .txt<br>mkdir 创建目录<br>mkdir dir1 创建一个叫做 ‘dir1’ 的目录’<br>mkdir dir1 dir2 同时创建两个目录<br>mkdir -p &#x2F;tmp&#x2F;dir1&#x2F;dir2 创建小目录（目录套目录） </p><p>touch 创建文件<br>更新日期<br>du -sh &#x2F;  看大小（脱裤查看源码大小，太大可以压缩）</p><h2 id="复制文件-cp"><a href="#复制文件-cp" class="headerlink" title="复制文件 cp"></a>复制文件 cp</h2><pre><code>cp file1 file2 复制一个文件 cp dir/* . 复制一个目录下的所有文件到当前工作目录 cp -r /tmp/dir1 . 复制一个目录到当前工作目录 cp -r dir1 dir2 复制一个目录 cp -f 强制覆盖目标同名文件或目录</code></pre><h2 id="删除文件-rm"><a href="#删除文件-rm" class="headerlink" title="删除文件 rm"></a>删除文件 rm</h2><pre><code>rm -f file1 删除一个叫做 &#39;file1&#39; 的文件&#39; rmdir dir1 删除一个叫做 &#39;dir1&#39; 的目录&#39; rm -rf dir1 删除一个叫做 &#39;dir1&#39; 的目录并同时删除其内容 rm -rf dir1 dir2 同时删除两个目录及它们的内容 rm -f file1 删除一个叫做 &#39;file1&#39; 的文件&#39; rmdir dir1 删除一个叫做 &#39;dir1&#39; 的目录&#39; rm -rf dir1 删除一个叫做 &#39;dir1&#39; 的目录并同时删除其内容 rm -rf dir1 dir2 同时删除两个目录及它们的内容 </code></pre><h2 id="查找文件目录或文件：find-x2F"><a href="#查找文件目录或文件：find-x2F" class="headerlink" title="查找文件目录或文件：find &#x2F;"></a>查找文件目录或文件：find &#x2F;</h2><pre><code>-name 按文件名称查找-size  按文件大小查找-user 按文件属主查找-type 按文件类型查找</code></pre><p>find &#x2F; -name file1 从 ‘&#x2F;‘ 开始进入根文件系统搜索文件和目录<br>find &#x2F; -user user1 搜索属于用户 ‘user1’ 的文件和目录<br>find &#x2F;home&#x2F;user1 -name *.bin 在目录 ‘&#x2F; home&#x2F;user1’ 中搜索带有’.bin’ 结尾的文件<br>find &#x2F;usr&#x2F;bin -type f -atime +100 搜索在过去100天内未被使用过的执行文件<br>find &#x2F;usr&#x2F;bin -type f -mtime -10 搜索在10天内被创建或者修改过的文件<br>find &#x2F; -name *.rpm -exec chmod 755 ‘{}’ ; 搜索以 ‘.rpm’ 结尾的文件并定义其权限<br>find &#x2F; -xdev -name *.rpm 搜索以 ‘.rpm’ 结尾的文件，忽略光驱、捷盘等可移动设备 </p><h2 id="显示各种信息"><a href="#显示各种信息" class="headerlink" title="显示各种信息"></a>显示各种信息</h2><p>arch 显示机器的处理器架构(1)<br>uname -m 显示机器的处理器架构(2)<br>uname -r 显示正在使用的内核版本<br>dmidecode -q 显示硬件系统部件 - (SMBIOS &#x2F; DMI)<br>hdparm -i &#x2F;dev&#x2F;hda 罗列一个磁盘的架构特性<br>hdparm -tT &#x2F;dev&#x2F;sda 在磁盘上执行测试性读取操作<br>cat &#x2F;proc&#x2F;cpuinfo 显示CPU info的信息<br>cat &#x2F;proc&#x2F;interrupts 显示中断<br>cat &#x2F;proc&#x2F;meminfo 校验内存使用<br>cat &#x2F;proc&#x2F;swaps 显示哪些swap被使用<br>cat &#x2F;proc&#x2F;version 显示内核的版本<br>cat &#x2F;proc&#x2F;net&#x2F;dev 显示网络适配器及统计<br>cat &#x2F;proc&#x2F;mounts 显示已加载的文件系统<br>lspci -tv 罗列 PCI 设备<br>lsusb -tv 显示 USB 设备<br>date 显示系统日期 </p><h2 id="编辑器"><a href="#编辑器" class="headerlink" title="编辑器"></a>编辑器</h2><p>vi<br>-r 恢复系统突然崩溃时的文件<br>-R 以只读方式</p><p>&#x2F;加查找单词  回车<br>6dd剪贴 yy复制 p粘贴 u撤销<br>wq:保存退出 ！强制</p><p>底行模式：命令模式下shift加：</p><p>搜索和替换：<br>%（10，19）s&#x2F;搜索单词&#x2F;替换单词<br>moro 分屏显示文本空格翻页<br>wc</p><h2 id="压缩"><a href="#压缩" class="headerlink" title="压缩"></a>压缩</h2><p>bunzip2 file1.bz2 解压一个叫做 ‘file1.bz2’的文件<br>bzip2 file1 压缩一个叫做 ‘file1’ 的文件<br>gunzip file1.gz 解压一个叫做 ‘file1.gz’的文件<br>gzip file1 压缩一个叫做 ‘file1’的文件<br>gzip -9 file1 最大程度压缩<br>unzip file1.zip 解压一个zip格式压缩包 </p><h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p>tar -cvf archive.tar file1 创建一个非压缩的 tarball<br>tar -cvf archive.tar file1 file2 dir1 创建一个包含了 ‘file1’, ‘file2’ 以及 ‘dir1’的档案文件<br>tar -tf archive.tar 显示一个包中的内容<br>tar -xvf archive.tar 释放一个包<br>tar -xvf archive.tar -C &#x2F;tmp 将压缩包释放到 &#x2F;tmp目录下<br>tar -cvfj archive.tar.bz2 dir1 创建一个bzip2格式的压缩包<br>tar -xvfj archive.tar.bz2 解压一个bzip2格式的压缩包<br>tar -cvfz archive.tar.gz dir1 创建一个gzip格式的压缩包<br>tar -xvfz archive.tar.gz 解压一个gzip格式的压缩包 </p>]]></content>
       
       
       
